@@ -1,0 +1,48 @@
+.container {
+    width: 100%;
+    padding: 3rem;
+    background: linear-gradient(135deg, #ffffff, #e9edf7); /* Градиентный фон */
+    border-radius: 20px;
+    margin-bottom: 10rem;
+    text-align: center; /* Центрируем текст */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+}
+
+.list {
+    list-style: none; /* Убираем маркеры списка */
+    padding: 0;
+    margin: 2rem 0 0 0;
+    display: grid;
+    gap: 1.5rem; /* Расстояние между элементами списка */
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Расстояние между иконкой и текстом */
+    flex-direction: row; /* По умолчанию иконка и текст идут в строку */
+}
+
+@media (max-width: 768px) {
+    .item {
+        flex-direction: column; /* Переводим в колонку для мобильных устройств */
+        align-items: center; /* Выравниваем по центру */
+    }
+
+    .icon {
+        margin-bottom: 0.5rem; /* Добавляем отступ снизу для иконки */
+    }
+}
+
+.icon {
+    font-size: 2rem; /* Увеличиваем размер иконок */
+    color: var(--primary-color); /* Основной цвет проекта */
+    flex-shrink: 0; /* Запрещаем уменьшать иконку */
+}
+
+.item p {
+    margin: 0; /* Убираем отступы */
+    font-size: 1rem; /* Размер шрифта */
+    line-height: 1.6; /* Оптимальный межстрочный интервал */
+    color: var(--text-color); /* Цвет текста из глобальных переменных */
+}

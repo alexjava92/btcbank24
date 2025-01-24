@@ -1,0 +1,200 @@
+.headerWrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.headerWrapper.scrolled {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Выровнять логотип по высоте контейнера */
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-left: auto; /* Оставляет пустое пространство между логотипом и меню */
+
+}
+
+.nav.open {
+    padding-top: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(0);
+    z-index: 999;
+}
+
+
+
+.navLink {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.navLink:hover {
+    color: var(--primary-color);
+}
+
+.burgerMenu {
+    display: none; /* Скрываем бургер-меню на больших экранах */
+}
+
+.dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 200px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.dropdown.active .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdownItem {
+    padding: 5px 20px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdownItem:hover {
+    color: var(--primary-color);
+    border-radius: 8px;
+}
+
+
+@media (max-width: 768px) {
+    .dropdownMenu {
+        background: none;
+        box-shadow: none;
+    }
+
+
+
+    .nav.closed {
+        transform: translateX(-100%);
+    }
+
+    .burgerMenu {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 30px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1000;
+        position: relative;
+    }
+
+    .burgerMenu div {
+        width: 30px;
+        height: 3px;
+        background-color: var(--primary-color);
+        border-radius: 2px; /* Делаем полоски слегка округлыми */
+        position: absolute; /* Фиксируем полоски */
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .burgerMenu div:nth-child(1) {
+        top: 0; /* Верхняя полоска */
+        transform-origin: center center; /* Центр вращения */
+    }
+
+    .burgerMenu div:nth-child(2) {
+        top: 50%; /* Средняя полоска */
+        transform: translateY(-50%); /* Центрируем */
+    }
+
+    .burgerMenu div:nth-child(3) {
+        bottom: 0; /* Нижняя полоска */
+        transform-origin: center center; /* Центр вращения */
+    }
+
+    .burgerMenu.open div:nth-child(1) {
+        transform: translateY(10px) rotate(45deg); /* Верхняя полоска превращается в часть креста */
+    }
+
+    .burgerMenu.open div:nth-child(2) {
+        opacity: 0; /* Средняя полоска исчезает */
+    }
+
+    .burgerMenu.open div:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg); /* Нижняя полоска превращается в часть креста */
+    }
+
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .nav.open {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .burgerMenu {
+        display: flex;
+    }
+}

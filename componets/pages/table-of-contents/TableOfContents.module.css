@@ -1,0 +1,60 @@
+.containerFlex {
+    display: flex;
+    max-width: 1200px;
+}
+
+.container {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 16px;
+    font-family: var(--font-family);
+    margin-bottom: 10rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listItem {
+    margin-bottom: 8px;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: var(--primary-color);
+}
+
+.subList {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.subListItem {
+    margin-bottom: 4px;
+}
+
+.subLink {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.subLink:hover {
+    color: var(--primary-color);
+}

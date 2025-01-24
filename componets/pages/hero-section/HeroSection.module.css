@@ -1,0 +1,67 @@
+.heroSectionWrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 15px;
+    padding: 2rem;
+    margin-bottom: 10rem;
+}
+
+@media (max-width: 1024px) {
+    .heroSectionWrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 4rem;
+    }
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+}
+
+@media (max-width: 1024px) {
+    .contentWrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Центрируем все элементы по горизонтали */
+        text-align: center;
+    }
+
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+.title span {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #718096;
+    line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+    .subtitle {
+        font-size: 1.2rem;
+    }
+}

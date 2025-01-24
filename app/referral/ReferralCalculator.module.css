@@ -1,0 +1,80 @@
+.calculatorContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem;
+
+    border-radius: 30px;
+    background-color: var(--card-background);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+}
+
+.sliderContainer {
+    margin: 20px 0;
+}
+
+.sliderContainer label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.sliderContainer input {
+    width: 100%;
+    transition: all var(--transition-duration) ease-in-out;
+}
+
+.resultContainer {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.earningsHighlight {
+    color: var(--primary-color);
+
+}
+
+.resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.resetButton:hover {
+    background: var(--primary-color);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+
+    .calculatorContainer {
+        margin: 5rem 1rem 5rem 1rem;
+        max-width: 100%;
+        padding: 2rem;
+    }
+
+    .sliderContainer label {
+        font-size: 16px;
+    }
+
+    .resultContainer {
+        font-size: 18px;
+    }
+
+    .resetButton {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}

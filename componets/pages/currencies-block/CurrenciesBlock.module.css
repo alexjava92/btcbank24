@@ -1,0 +1,61 @@
+.currenciesSection {
+    padding: 3rem 2rem;
+    margin-bottom: 10rem;
+    text-align: center;
+}
+
+.currenciesTitle {
+    margin-bottom: 2rem;
+    color: #212529;
+    font-weight: bold;
+}
+
+.currenciesGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Пять колонок */
+    gap: 2rem; /* Зазор между элементами */
+    justify-content: center; /* Центрирование содержимого */
+
+
+}
+
+.currencyCard {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    grid-column: span 1; /* Каждая карточка занимает 1 колонку */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .currenciesGrid {
+        grid-template-columns: 1fr; /* Одна колонка для мобильных */
+        gap: 1.5rem; /* Уменьшение расстояния между элементами */
+    }
+}
+
+.currencyCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #212529;
+    font-weight: 600;
+}
+
+.cardDescription {
+    font-size: 1rem;
+    color: #6c757d;
+}

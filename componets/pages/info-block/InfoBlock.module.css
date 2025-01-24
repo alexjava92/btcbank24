@@ -1,0 +1,35 @@
+.infoContainer {
+    margin-bottom: 10rem;
+    padding: 3rem;
+    background: var(--card-background);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 30px;
+}
+
+.infoText {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.infoText a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+}
+
+.infoText a:hover {
+    text-decoration: underline;
+    color: var(--secondary-color);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .infoContainer {
+        margin: 5rem 1rem 5rem 1rem;
+    }
+
+    .infoText {
+        font-size: 16px;
+    }
+}

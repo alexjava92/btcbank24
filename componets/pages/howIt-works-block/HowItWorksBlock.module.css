@@ -1,0 +1,56 @@
+.container {
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 10rem;
+}
+
+.heading {
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+    line-height: 1.5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.icon {
+    font-size: 32px;
+    color: #007bff;
+    flex-shrink: 0; /* Предотвращает сжатие */
+    flex-grow: 0; /* Предотвращает растягивание */
+    width: 40px; /* Фиксированная ширина */
+    height: 40px; /* Фиксированная высота */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .steps {
+        gap: 16px;
+    }
+
+    .step {
+        font-size: 16px;
+    }
+
+    .icon {
+        font-size: 28px; /* Уменьшаем размер иконки */
+        width: 36px; /* Соразмерно уменьшаем ширину */
+        height: 36px; /* Соразмерно уменьшаем высоту */
+    }
+}
