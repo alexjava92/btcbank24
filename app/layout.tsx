@@ -22,7 +22,7 @@ const Wrapper = ({ children }: { children: ReactNode }) => {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="ru">
-        <Head>
+        <head>
             <meta name="yandex-verification" content="9952fac48f824039" />
             <noscript>
                 <div>
@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     />
                 </div>
             </noscript>
-        </Head>
+        </head>
         <body>
         <ThemeProvider theme={theme}>
             <GlobalStyles />
