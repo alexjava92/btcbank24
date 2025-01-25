@@ -33,9 +33,9 @@ const Footer = () => (
                 <Link href="/privacy-policy" className={styles.legalLink}>
                     Политика конфиденциальности
                 </Link>
-                <Link href="/public-offer" className={styles.legalLink}>
+                {/*<Link href="/public-offer" className={styles.legalLink}>
                     Публичная оферта
-                </Link>
+                </Link>*/}
             </div>
         </div>
     </footer>

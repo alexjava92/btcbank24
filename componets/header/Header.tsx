@@ -29,8 +29,8 @@ const Header: React.FC = () => {
 
     const navLinks = [
         {href: '/', label: 'Главная', icon: <Home/>},
-        {href: '/privacy-policy', label: 'Политика', icon: <Shield/>},
-        {href: '/public-offer', label: 'Оферта', icon: <FileText/>},
+        /*{href: '/privacy-policy', label: 'Политика', icon: <Shield/>},*/
+        /*{href: '/public-offer', label: 'Оферта', icon: <FileText/>},*/
         {href: '/referral', label: 'Партнёрам', icon: <Users/>},
     ];
 
