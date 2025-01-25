@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const metadataBase = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://btcbank24.site');
+const metadataBase = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://btcbank24.ru');
 
 
 interface SEOProps {

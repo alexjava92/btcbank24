@@ -29,8 +29,8 @@ const SeoSchema = ({
                        breadcrumbs = [],
                        organizationInfo = {
                            name: 'BtcBank24',
-                           url: 'https://btcbank24.site',
-                           logo: 'https://btcbank24.site/images/logo/logo.png',
+                           url: 'https://btcbank24.ru',
+                           logo: 'https://btcbank24.ru/images/logo/logo.png',
                            description: 'Обмен криптовалют BTC, LTC, USDT, XMR на рубли через Telegram.',
                            socialLinks: [
                                'https://t.me/Btcbank24com_v2_bot',

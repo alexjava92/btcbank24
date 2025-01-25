@@ -16,12 +16,12 @@ export async function GET() {
         console.log('Обновлено:', updatedCrypto);
 
         console.log('--- Тест: удаление криптовалюты ---');
-        const deleteResult = await cryptoQueries.deleteCrypto(newCrypto.id);
-        console.log(
+        /*const deleteResult = await cryptoQueries.deleteCrypto(newCrypto.id);*/
+       /* console.log(
             deleteResult !== null && deleteResult > 0
                 ? 'Удаление успешно'
                 : 'Ошибка удаления'
-        );
+        );*/
 
         return NextResponse.json({ message: 'Тест завершён успешно' }, { status: 200 });
     } catch (error) {

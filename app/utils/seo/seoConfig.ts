@@ -2,7 +2,7 @@
 
 import PrivacyPolicy from "@/app/privacy-policy/page";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://btcbank24.site';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://btcbank24.ru';
 
 export const seoConfig = {
     home: {
