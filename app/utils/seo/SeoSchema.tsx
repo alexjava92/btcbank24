@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from "next/script";
 
 interface Breadcrumb {
     position: number;
@@ -77,7 +78,7 @@ const SeoSchema = ({
 
     return (
 
-            <script
+            <Script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
             />

@@ -7,5 +7,5 @@ module.exports = {
     experimental: {
         optimizeCss: false,
     },
-    output: 'standalone', // Убедитесь, что не 'export'
+
 };
