@@ -2,7 +2,7 @@ import {seoConfig} from "@/app/utils/seo/seoConfig";
 import FullFAQ from "@/app/faq/FullFAQ";
 import SeoSchema from "@/app/utils/seo/SeoSchema";
 import {generateMetadata} from "@/app/utils/seo/seo";
-import React from "react";
+import React, {Suspense} from "react";
 
 
 export const metadata = generateMetadata({
@@ -22,8 +22,9 @@ const FAQPage = () => {
                 breadcrumbs={seoConfig.faq.breadcrumbs}
             />
 
-
-            <FullFAQ/>
+            <Suspense fallback={<div>Загрузка...</div>}>
+                <FullFAQ/>
+            </Suspense>
 
         </>
     );
