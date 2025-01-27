@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import ClientChecker from './schema-client';
 
 // Функция для загрузки данных Schema.org на сервере
 async function fetchSchemaData() {
@@ -26,11 +27,10 @@ async function fetchSchemaData() {
 export default async function SchemaTestPage() {
     const seoSchema = await fetchSchemaData();
 
-    console.log("======== CLIENT LOGS ========");
+    console.log("======== SERVER RENDER LOGS ========");
     console.log('SchemaTestPage rendered on:', typeof window === 'undefined' ? 'server' : 'client');
     console.log('Schema JSON on render:', seoSchema);
     console.log('Build timestamp:', new Date().toISOString());
-    console.log('Document URL:', typeof window !== 'undefined' ? document.URL : 'Server-side rendering');
     console.log("=============================");
 
     return (
@@ -46,6 +46,9 @@ export default async function SchemaTestPage() {
                 <p><strong>NEXT_PUBLIC_SITE_URL:</strong> {process.env.NEXT_PUBLIC_SITE_URL || 'URL_NOT_DEFINED'}</p>
                 <p><strong>Сборка выполнена:</strong> {new Date().toLocaleString()}</p>
             </div>
+
+            {/* Клиентская проверка */}
+            <ClientChecker />
         </>
     );
 }

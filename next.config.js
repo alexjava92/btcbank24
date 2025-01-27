@@ -4,7 +4,8 @@ const nextConfig = {
         styledComponents: true,
     },
     experimental: {
-        optimizeCss: false, // Оптимизация CSS
+        optimizeCss: true,
+        // Оптимизация CSS
     },
 };
 
