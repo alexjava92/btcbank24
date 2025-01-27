@@ -19,7 +19,7 @@ import CustomerReviews from "@/componets/pages/customer-reviews/CustomerReviews"
 import {generateMetadata} from "@/app/utils/seo/seo";
 import SeoSchema from "@/app/utils/seo/SeoSchema";
 import {seoConfig} from "@/app/utils/seo/seoConfig";
-import Head from "next/head";
+import Script from "next/script";
 
 
 export const metadata = generateMetadata({
@@ -31,14 +31,14 @@ export default function HomePage() {
 
     return (
         <>
-            <Head>
+            <Script>
                 <SeoSchema
                     pageTitle={seoConfig.home.title}
                     pageDescription={seoConfig.home.description}
                     pageUrl={seoConfig.home.url}
                     breadcrumbs={seoConfig.home.breadcrumbs}
                 />
-            </Head>
+            </Script>
 
 
 
