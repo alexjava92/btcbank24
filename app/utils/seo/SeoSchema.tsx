@@ -43,7 +43,6 @@ const SeoSchema = ({
         ? pageUrl
         : `${process.env.NEXT_PUBLIC_SITE_URL}${pageUrl}`;
 
-    console.log('SeoSchema rendered on:', typeof window === 'undefined' ? 'server' : 'client');
 
 
     const schemaData = {

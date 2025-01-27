@@ -5,6 +5,7 @@
     border-radius: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto 10rem;
+
 }
 
 .faqList {
@@ -41,7 +42,7 @@
 /* Адаптивность */
 @media (max-width: 768px) {
     .faqContainer {
-
+        padding: 3rem;
     }
     .faqQuestion {
 
@@ -53,12 +54,12 @@
 
 @media (max-width: 480px) {
     .faqContainer {
-        padding: 0.75rem;
+        padding: 3rem;
     }
     .faqQuestion {
-        font-size: 1rem;
+
     }
     .faqAnswer {
-        font-size: 0.9rem;
+
     }
 }

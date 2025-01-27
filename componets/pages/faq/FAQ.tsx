@@ -1,5 +1,4 @@
-'use client';
-
+"use client"
 import React, { useState } from 'react';
 import styles from './FAQ.module.css';
 
@@ -21,7 +20,7 @@ const FAQ: React.FC<FAQProps> = ({ items, title = 'Часто задаваемы
     };
 
     return (
-        <div className={`${styles.faqContainer} container`}>
+        <div className={styles.faqContainer}>
             <h2 className="text-center">{title}</h2>
             <div className={styles.faqList}>
                 {items.map((item, index) => (
@@ -31,9 +30,7 @@ const FAQ: React.FC<FAQProps> = ({ items, title = 'Часто задаваемы
                         onClick={() => toggleFAQ(index)}
                     >
                         <div className={styles.faqQuestion}>{item.question}</div>
-                        <div className={styles.faqAnswer} style={{ display: openIndex === index ? 'block' : 'none' }}>
-                            {item.answer}
-                        </div>
+                        {openIndex === index && <div className={styles.faqAnswer}>{item.answer}</div>}
                     </div>
                 ))}
             </div>

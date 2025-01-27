@@ -25,6 +25,9 @@ export function generateMetadata({
         description,
         keywords: keywords,
         metadataBase,
+        alternates: {
+            canonical: `${metadataBase.origin}${url}`,
+        },
         openGraph: {
             title,
             description,
