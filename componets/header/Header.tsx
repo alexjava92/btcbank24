@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
-import {Home, Shield, FileText, Users, ChevronDown, Repeat} from 'lucide-react';
+import {Home, Shield, FileText, Users, ChevronDown, Repeat, HelpCircle} from 'lucide-react';
 import styles from './Header.module.css';
 import Image from "next/image";
 
@@ -28,10 +28,12 @@ const Header: React.FC = () => {
     };
 
     const navLinks = [
-        {href: '/', label: 'Главная', icon: <Home/>},
+        /*{href: '/', label: 'Главная', icon: <Home/>},*/
         /*{href: '/privacy-policy', label: 'Политика', icon: <Shield/>},*/
         /*{href: '/public-offer', label: 'Оферта', icon: <FileText/>},*/
+        {href: '/faq', label: 'FAQ', icon: <HelpCircle />},
         {href: '/referral', label: 'Партнёрам', icon: <Users/>},
+
     ];
 
     return (
