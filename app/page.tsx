@@ -17,11 +17,10 @@ import HowItWorksBlock from "@/componets/pages/howIt-works-block/HowItWorksBlock
 import CallToAction from "@/componets/pages/call-to-action/CallToAction";
 import CustomerReviews from "@/componets/pages/customer-reviews/CustomerReviews";
 import {generateMetadata} from "@/app/utils/seo/seo";
-
+import SeoSchema from "@/app/utils/seo/SeoSchema";
 import {seoConfig} from "@/app/utils/seo/seoConfig";
-import dynamic from "next/dynamic";
+import Head from "next/head";
 
-const SeoSchema = dynamic(() => import('@/app/utils/seo/SeoSchema'), { ssr: true });
 
 export const metadata = generateMetadata({
     ...seoConfig.home
@@ -32,12 +31,16 @@ export default function HomePage() {
 
     return (
         <>
-            <SeoSchema
-                pageTitle={seoConfig.home.title}
-                pageDescription={seoConfig.home.description}
-                pageUrl={seoConfig.home.url}
-                breadcrumbs={seoConfig.home.breadcrumbs}
-            />
+            <Head>
+                <SeoSchema
+                    pageTitle={seoConfig.home.title}
+                    pageDescription={seoConfig.home.description}
+                    pageUrl={seoConfig.home.url}
+                    breadcrumbs={seoConfig.home.breadcrumbs}
+                />
+            </Head>
+
+
 
             <HeroSection
                 title={
