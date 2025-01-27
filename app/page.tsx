@@ -17,10 +17,11 @@ import HowItWorksBlock from "@/componets/pages/howIt-works-block/HowItWorksBlock
 import CallToAction from "@/componets/pages/call-to-action/CallToAction";
 import CustomerReviews from "@/componets/pages/customer-reviews/CustomerReviews";
 import {generateMetadata} from "@/app/utils/seo/seo";
-import SeoSchema from "@/app/utils/seo/SeoSchema";
+
 import {seoConfig} from "@/app/utils/seo/seoConfig";
+import dynamic from "next/dynamic";
 
-
+const SeoSchema = dynamic(() => import('@/app/utils/seo/SeoSchema'), { ssr: true });
 
 export const metadata = generateMetadata({
     ...seoConfig.home
