@@ -19,7 +19,6 @@ import CustomerReviews from "@/componets/pages/customer-reviews/CustomerReviews"
 import {generateMetadata} from "@/app/utils/seo/seo";
 import SeoSchema from "@/app/utils/seo/SeoSchema";
 import {seoConfig} from "@/app/utils/seo/seoConfig";
-import Script from "next/script";
 
 
 export const metadata = generateMetadata({
@@ -31,15 +30,13 @@ export default function HomePage() {
 
     return (
         <>
-            <Script>
-                <SeoSchema
-                    pageTitle={seoConfig.home.title}
-                    pageDescription={seoConfig.home.description}
-                    pageUrl={seoConfig.home.url}
-                    breadcrumbs={seoConfig.home.breadcrumbs}
-                />
-            </Script>
 
+            <SeoSchema
+                pageTitle={seoConfig.home.title}
+                pageDescription={seoConfig.home.description}
+                pageUrl={seoConfig.home.url}
+                breadcrumbs={seoConfig.home.breadcrumbs}
+            />
 
 
             <HeroSection

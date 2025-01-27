@@ -76,12 +76,12 @@ const SeoSchema = ({
     };
 
     return (
-        <Head>
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
             />
-        </Head>
+
     );
 };
 
