@@ -43,7 +43,7 @@ const FullFAQ: FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
-            {filteredFaqs.map(({ id, question, answer, link }) => (
+            {filteredFaqs.map(({ id, question, answer, link, example }) => (
                 <div key={id} id={id} className={styles.faqItem}>
                     <button
                         className={`${styles.question} ${openQuestion === id ? styles.active : ''}`}
@@ -58,6 +58,11 @@ const FullFAQ: FC = () => {
                                 <a href={link.url} target="_blank" rel="noopener noreferrer">
                                     {link.text}
                                 </a>
+                            )}
+                            {example && (
+                                <div className={styles.example}>
+                                    <strong>{example.text}:</strong> {example.value}
+                                </div>
                             )}
                         </p>
                     )}

@@ -1,6 +1,11 @@
 import Head from 'next/head';
 import Script from "next/script";
 
+interface FAQItem {
+    question: string;
+    answer: string;
+}
+
 interface Breadcrumb {
     position: number;
     name: string;
@@ -13,6 +18,7 @@ interface SeoSchemaProps {
     pageUrl: string;
     pageImage?: string;
     breadcrumbs?: Breadcrumb[];
+    faqData?: FAQItem[];
     organizationInfo?: {
         name: string;
         url: string;
@@ -28,6 +34,7 @@ const SeoSchema = ({
                        pageUrl,
                        pageImage = '/images/default-image.jpg',
                        breadcrumbs = [],
+                       faqData = [],
                        organizationInfo = {
                            name: 'BtcBank24',
                            url: 'https://btcbank24.ru',
@@ -70,6 +77,17 @@ const SeoSchema = ({
                     "position": breadcrumb.position,
                     "name": breadcrumb.name,
                     "item": breadcrumb.url
+                }))
+            },
+            faqData.length > 0 && {
+                "@type": "FAQPage",
+                "mainEntity": faqData.map(({ question, answer }) => ({
+                    "@type": "Question",
+                    "name": question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": answer
+                    }
                 }))
             }
         ].filter(Boolean) // Удаляем пустые элементы
