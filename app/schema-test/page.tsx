@@ -1,5 +1,7 @@
+export const dynamic = 'force-dynamic'; // Принудительный серверный рендеринг
+
 import Head from 'next/head';
-import ClientChecker from './schema-client';
+import Script from 'next/script';
 
 // Функция для загрузки данных Schema.org на сервере
 async function fetchSchemaData() {
@@ -38,17 +40,27 @@ export default async function SchemaTestPage() {
             <Head>
                 <title>Тест Schema.org</title>
                 <meta name="description" content="Тестовая страница для проверки рендеринга разметки Schema.org." />
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: seoSchema }} />
+                <script
+                    id="schema-markup"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: seoSchema }}
+                />
             </Head>
+
+            <Script
+                id="schema-script"
+                type="application/ld+json"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{ __html: seoSchema }}
+            />
+
             <div style={{ padding: '20px', textAlign: 'center' }}>
                 <h1>Тестовая страница Schema.org</h1>
                 <p>Проверьте исходный код страницы, чтобы убедиться в наличии JSON-LD разметки.</p>
+                <pre>{seoSchema}</pre>
                 <p><strong>NEXT_PUBLIC_SITE_URL:</strong> {process.env.NEXT_PUBLIC_SITE_URL || 'URL_NOT_DEFINED'}</p>
                 <p><strong>Сборка выполнена:</strong> {new Date().toLocaleString()}</p>
             </div>
-
-            {/* Клиентская проверка */}
-            <ClientChecker />
         </>
     );
 }

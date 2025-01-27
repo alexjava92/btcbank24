@@ -1,12 +1,11 @@
-const nextConfig = {
+
+module.exports = {
     reactStrictMode: true,
     compiler: {
         styledComponents: true,
     },
     experimental: {
-        optimizeCss: true,
-        // Оптимизация CSS
+        optimizeCss: false,
     },
+    output: 'standalone', // Убедитесь, что не 'export'
 };
-
-module.exports = nextConfig;
