@@ -32,7 +32,7 @@ export function generateMetadata({
             type: 'website',
             images: [
                 {
-                    url: `${metadataBase.origin}${image || '/images/home/crypto-transform.png'}`,
+                    url: `${metadataBase.origin}${image || '/images/btc-default.png'}`,
                     width: 1200,
                     height: 630,
                     alt: title,
@@ -43,11 +43,11 @@ export function generateMetadata({
             card: 'summary_large_image',
             title,
             description,
-            images: [`${metadataBase.origin}${image || '/images/home/crypto-transform.png'}`],
+            images: [`${metadataBase.origin}${image || '/images/btc-default.png'}`],
         },
         robots: noIndex ? 'noindex, nofollow' : 'index, follow',
         other: {
-            'vk:image': `${metadataBase.origin}${image || '/images/home/crypto-transform.png'}`,
+            'vk:image': `${metadataBase.origin}${image || '/images/btc-default.png'}`,
             'vk:title': title,
             'vk:description': description,
             'vk:url': `${metadataBase.origin}${url}`,

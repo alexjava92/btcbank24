@@ -1,48 +1,27 @@
-"use client";
-
 import { ReactNode } from "react";
-import { ThemeProvider } from "styled-components";
-import GlobalStyles from "../styles/GlobalStyles";
-import theme from "../styles/theme";
-import Header from "@/componets/header/Header";
-import Footer from "@/componets/footer/Footer";
-import styles from "./Layout.module.css";
-import Head from "next/head";
-import Script from "next/script";
+import Wrapper from "@/app/Wrapper";
 
-const Wrapper = ({ children }: { children: ReactNode }) => {
-    return (
-        <>
-            <div className={styles.gridBackground} />
-            <main className={styles.contentWrapper}>{children}</main>
-        </>
-    );
+
+export const metadata = {
+    other: {
+        "yandex-verification": "9952fac48f824039",
+    },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="ru">
-        <head>
-            <meta name="yandex-verification" content="9952fac48f824039" />
-            <noscript>
-                <div>
-                    <img
-                        src="https://mc.yandex.ru/watch/99657688"
-                        style={{ position: 'absolute', left: '-9999px' }}
-                        alt=""
-                    />
-                </div>
-            </noscript>
-        </head>
         <body>
-        <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            <div className={styles.layoutWrapper}>
-                <Header />
-                <Wrapper>{children}</Wrapper>
-                <Footer />
+        <noscript>
+            <div>
+                <img
+                    src="https://mc.yandex.ru/watch/99657688"
+                    style={{ position: 'absolute', left: '-9999px' }}
+                    alt=""
+                />
             </div>
-        </ThemeProvider>
+        </noscript>
+        <Wrapper>{children}</Wrapper>
         </body>
         </html>
     );

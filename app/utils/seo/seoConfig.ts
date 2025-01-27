@@ -48,6 +48,17 @@ export const seoConfig = {
             { position: 1, name: "Главная", url: `${baseUrl}/` },
             { position: 2, name: "Политика конфиденциальности | BTCBank24", url: `${baseUrl}/privacy-policy` }
         ]
+    },
+    faq: {
+        title: 'Часто задаваемые вопросы | BTCBank24',
+        description: 'Ответы на часто задаваемые вопросы по обмену криптовалют.',
+        keywords: 'вопросы, FAQ, BTCBank24',
+        url: '/faq',
+        noIndex: false,
+        breadcrumbs: [
+            { position: 1, name: 'Главная', url: 'https://btcbank24.ru/' },
+            { position: 2, name: 'Часто задаваемые вопросы', url: 'https://btcbank24.ru/faq' }
+        ]
     }
     // Добавь другие страницы по аналогии
 };
