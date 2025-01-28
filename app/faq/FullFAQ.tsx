@@ -2,31 +2,48 @@
 import { faqData } from './faqData';
 import styles from './FullFAQ.module.css';
 import React, { FC, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const FullFAQ: FC = () => {
     const [openQuestion, setOpenQuestion] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState<string>('');
     const searchParams = useSearchParams();
+    const router = useRouter();
+    const [isInitialLoad, setIsInitialLoad] = useState<boolean>(true); // Флаг для отслеживания первого рендера
 
     useEffect(() => {
         const questionId = searchParams.get('q');
-        if (questionId) {
+        if (questionId && isInitialLoad) {
             setOpenQuestion(questionId);
-            scrollToQuestion(questionId);
+            scrollToQuestion(questionId); // Прокрутка только при первой загрузке
+            setIsInitialLoad(false); // Отключаем флаг после первой загрузки
         }
-    }, [searchParams]);
+    }, [searchParams, isInitialLoad]);
 
     const toggleQuestion = (id: string) => {
-        setOpenQuestion(prev => (prev === id ? null : id));
+        if (openQuestion === id) {
+            setOpenQuestion(null);
+            router.push('/faq'); // Убираем параметр из URL
+        } else {
+            setOpenQuestion(id);
+            router.push(`/faq?q=${id}`, { scroll: false }); // Обновляем URL без прокрутки
+        }
     };
 
     const scrollToQuestion = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
+            // Применяем класс scroll перед прокруткой
+            element.classList.add('scroll');
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Удаляем класс scroll после прокрутки (на всякий случай, чтобы избежать накопления классов)
+            setTimeout(() => {
+                element.classList.remove('scroll');
+            }, 300); // Время снятия класса (можно подкорректировать)
         }
     };
+
 
     const filteredFaqs = faqData.filter(({ question, answer }) =>
         question.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -52,19 +69,21 @@ const FullFAQ: FC = () => {
                         {question}
                     </button>
                     {openQuestion === id && (
-                        <p className={styles.answer}>
-                            {answer}{" "}
-                            {link && (
-                                <a href={link.url} target="_blank" rel="noopener noreferrer">
-                                    {link.text}
-                                </a>
-                            )}
+                        <div className={styles.answer}>
+                            <p>
+                                {answer}{" "}
+                                {link && (
+                                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                                        {link.text}
+                                    </a>
+                                )}
+                            </p>
                             {example && (
                                 <div className={styles.example}>
                                     <strong>{example.text}:</strong> {example.value}
                                 </div>
                             )}
-                        </p>
+                        </div>
                     )}
                 </div>
             ))}
