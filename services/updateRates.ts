@@ -1,4 +1,4 @@
-import { fetchRates } from './fetchRates';
+import { fetchRates } from './fetchRates.js';
 import {cryptoQueries} from "@/lib/queries/crypto";
 
 
