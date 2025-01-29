@@ -1,4 +1,4 @@
-import { updateRates } from './services/updateRates';
+import { updateRates } from './services/updateRates.js';
 
 console.log('✅ Система обновления курсов запущена...');
 
