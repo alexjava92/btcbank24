@@ -1,13 +1,15 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
-    siteUrl: 'https://btcbank24.ru', // Указать URL сайта
-    generateRobotsTxt: true, // Создание robots.txt
-    sitemapSize: 5000, // Максимальное количество URL в одном файле
-    exclude: ['/admin', '/dashboard'], // Исключенные страницы
+const config = {
+    siteUrl: 'https://btcbank24.ru',
+    generateRobotsTxt: true,
+    sitemapSize: 5000,
+    exclude: ['/admin', '/dashboard'],
     robotsTxtOptions: {
         policies: [
             { userAgent: '*', allow: '/' },
-            { userAgent: '*', disallow: ['/admin', '/dashboard'] }, // Закрытые страницы
+            { userAgent: '*', disallow: ['/admin', '/dashboard'] },
         ],
     },
 };
+
+export default config;
