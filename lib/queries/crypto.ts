@@ -6,14 +6,20 @@ export const getAllCryptos = async () => {
     return result.rows;
 };
 
-// Добавление новой криптовалюты
+// Добавление или обновление криптовалюты
 export const addCrypto = async (name: string, rate: number, symbol: string) => {
     const result = await query(
-        'INSERT INTO cryptocurrencies (name, rate, symbol) VALUES ($1, $2, $3) RETURNING *',
+        `INSERT INTO cryptocurrencies (name, rate, symbol)
+         VALUES ($1, $2, $3)
+         ON CONFLICT (name) DO UPDATE
+             SET rate = EXCLUDED.rate
+         RETURNING *`,
         [name, rate, symbol]
     );
     return result.rows[0];
 };
+
+
 
 // Обновление курса криптовалюты
 export const updateCryptoRate = async (id: number, rate: number) => {

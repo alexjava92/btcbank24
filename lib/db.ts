@@ -1,4 +1,14 @@
-import { Pool } from 'pg';
+import pg from 'pg';
+import 'dotenv/config'; // Загружаем переменные окружения
+
+const { Pool } = pg;
+
+// Логируем переменные для проверки
+console.log("DB_USER:", process.env.DB_USER);
+console.log("DB_PASSWORD:", typeof process.env.DB_PASSWORD, process.env.DB_PASSWORD ? "✅ Загружен" : "❌ НЕ загружен");
+console.log("DB_HOST:", process.env.DB_HOST);
+console.log("DB_NAME:", process.env.DB_NAME);
+console.log("DB_PORT:", process.env.DB_PORT);
 
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -21,4 +31,4 @@ export const query = async (text: string, params?: any[]) => {
     }
 };
 
-export default pool;
+export { pool };
