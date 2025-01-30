@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { cryptoQueries } from '../../../lib/queries/index.js';
+import {cryptoQueries} from "@lib/queries/crypto";
+
 
 export async function GET() {
     try {
