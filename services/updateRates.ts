@@ -1,5 +1,5 @@
-import { fetchRates } from './fetchRates.js';
-import {cryptoQueries} from "@/lib/queries/crypto";
+import { fetchRates } from './fetchRates';
+import {cryptoQueries} from "@lib/queries/crypto";
 
 
 export async function updateRates() {

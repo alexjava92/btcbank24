@@ -12,7 +12,7 @@
 
 .currenciesGrid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Пять колонок */
+    grid-template-columns: repeat(2, 1fr); /* две колонки */
     gap: 2rem; /* Зазор между элементами */
     justify-content: center; /* Центрирование содержимого */
 
@@ -27,6 +27,30 @@
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     grid-column: span 1; /* Каждая карточка занимает 1 колонку */
+
+}
+
+.currencyRate {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #111; /* Глубокий тёмный для контраста */
+    background: #f8f9fa; /* Светлый, минималистичный фон */
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06); /* Легкая тень для воздушности */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.currencyRate::before {
+    content: '₽'; /* Символ рубля */
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color); /* Синий акцент */
 }
 
 /* Адаптация для мобильных устройств */
@@ -34,6 +58,15 @@
     .currenciesGrid {
         grid-template-columns: 1fr; /* Одна колонка для мобильных */
         gap: 1.5rem; /* Уменьшение расстояния между элементами */
+    }
+
+}
+
+/* Центрирование последнего элемента на десктопе */
+@media (min-width: 769px) {
+    .currenciesGrid > .currencyCard:nth-last-child(1):nth-child(odd) {
+        grid-column: span 2;
+        justify-self: center;
     }
 }
 
