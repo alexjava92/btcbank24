@@ -1,35 +1,44 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './CustomerReviews.module.css';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { reviews } from './reviews';
 
-interface Review {
-    id: number;
-    author: string;
-    rating: number;
-    text: string;
+const CustomerReviews: React.FC = () => {
+    const [currentPage, setCurrentPage] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
 
-}
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
 
-interface CustomerReviewsProps {
-    reviews: Review[];
-    title?: string;
-}
+        handleResize(); // Устанавливаем при загрузке
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
-const CustomerReviews: React.FC<CustomerReviewsProps> = ({ reviews, title = 'Отзывы клиентов' }) => {
-    const [currentColumn, setCurrentColumn] = useState(0);
+    const title = 'Отзывы клиентов';
+    const description = (
+        <>
+            Всё ещё сомневаетесь? В нашем <a href="https://t.me/+kV3vKFRPnAA2YzJi" target="_blank" rel="noopener noreferrer" className={styles.link}>Telegram-чате</a> сотни реальных отзывов! Просто вбейте <strong>#отзыв</strong> в поиск и убедитесь сами.
+        </>
+    );
 
-    const renderStars = (rating: number) => {
-        return Array.from({ length: 5 }, (_, index) => (
+    const reviewsPerPage = isMobile ? 3 : 9;
+    const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+
+    const renderStars = (rating: number) => (
+        Array.from({ length: 5 }, (_, index) => (
             <Star
                 key={index}
                 className={`${styles.star} ${index < rating ? styles.filled : ''}`}
             />
-        ));
-    };
+        ))
+    );
 
-    const renderReviewCard = (review: Review) => (
+    const renderReviewCard = (review: { id: number; author: string; rating: number; text: string }) => (
         <div key={review.id} className={styles.reviewCard}>
             <div className={styles.reviewHeader}>
                 <span className={styles.author}>{review.author}</span>
@@ -39,44 +48,43 @@ const CustomerReviews: React.FC<CustomerReviewsProps> = ({ reviews, title = 'О�
         </div>
     );
 
-    const renderDesktopView = () => (
-        <div className={styles.desktopColumns}>
-            {[0, 1, 2].map((columnIndex) => (
-                <div key={columnIndex} className={styles.column}>
-                    {reviews.slice(columnIndex * 3, columnIndex * 3 + 3).map(renderReviewCard)}
-                </div>
-            ))}
-        </div>
-    );
-
-    const renderMobileView = () => (
-        <div className={styles.mobileColumn}>
-            {reviews.slice(currentColumn * 3, currentColumn * 3 + 3).map(renderReviewCard)}
-            <div className={styles.mobileNavigation}>
-                <button
-                    className={styles.navButton}
-                    onClick={() => setCurrentColumn((prev) => (prev > 0 ? prev - 1 : 2))}
-                    aria-label="Предыдущий столбец отзывов"
-                >
-                    <ChevronLeft />
-                </button>
-                <button
-                    className={styles.navButton}
-                    onClick={() => setCurrentColumn((prev) => (prev < 2 ? prev + 1 : 0))}
-                    aria-label="Следующий столбец отзывов"
-                >
-                    <ChevronRight />
-                </button>
-            </div>
-        </div>
-    );
+    const getCurrentReviews = () => reviews.slice(currentPage * reviewsPerPage, (currentPage + 1) * reviewsPerPage);
 
     return (
         <section className={styles.reviewsContainer}>
             <h2 className={styles.reviewsTitle}>{title}</h2>
-            <div className={styles.reviewsList}>
-                {renderDesktopView()}
-                {renderMobileView()}
+            <p className={styles.reviewsDescription}>{description}</p>
+
+            <div className={isMobile ? styles.mobileColumn : styles.desktopColumns}>
+                {isMobile ? (
+                    getCurrentReviews().map(renderReviewCard)
+                ) : (
+                    Array.from({ length: 3 }, (_, columnIndex) => (
+                        <div key={columnIndex} className={styles.column}>
+                            {getCurrentReviews().slice(columnIndex * 3, columnIndex * 3 + 3).map(renderReviewCard)}
+                        </div>
+                    ))
+                )}
+            </div>
+
+            <div className={styles.pagination}>
+                <button
+                    className={styles.navButton}
+                    onClick={() => setCurrentPage((prev) => (prev > 0 ? prev - 1 : totalPages - 1))}
+                    aria-label="Предыдущая страница"
+                >
+                    <ChevronLeft />
+                </button>
+                <span className={styles.pageIndicator}>
+                    {currentPage + 1} / {totalPages}
+                </span>
+                <button
+                    className={styles.navButton}
+                    onClick={() => setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : 0))}
+                    aria-label="Следующая страница"
+                >
+                    <ChevronRight />
+                </button>
             </div>
         </section>
     );
