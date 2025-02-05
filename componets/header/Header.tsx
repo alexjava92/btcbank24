@@ -1,6 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
-import {Home, Shield, FileText, Users, ChevronDown, Repeat, HelpCircle} from 'lucide-react';
+import {
+    Home,
+    Shield,
+    FileText,
+    Users,
+    ChevronDown,
+    Repeat,
+    HelpCircle,
+    BookOpen,
+    Feather,
+    Library,
+    Edit3
+} from 'lucide-react';
 import styles from './Header.module.css';
 import Image from "next/image";
 
@@ -33,6 +45,7 @@ const Header: React.FC = () => {
         /*{href: '/public-offer', label: 'Оферта', icon: <FileText/>},*/
         {href: '/faq', label: 'FAQ', icon: <HelpCircle />},
         {href: '/referral', label: 'Партнёрам', icon: <Users/>},
+        {href: '/blog', label: 'Блог', icon: <Library/>}
 
     ];
 
@@ -80,7 +93,10 @@ const Header: React.FC = () => {
     </span>
                         <div className={styles.dropdownMenu}>
                             <Link href="/obmen-bitcoin" className={styles.dropdownItem} onClick={closeMenu}>
-                                Обмен биткоин
+                                Обмен Bitcoin (BTC)
+                            </Link>
+                            <Link href="/obmen-monero" className={styles.dropdownItem} onClick={closeMenu}>
+                                Обмен Monero (XMR)
                             </Link>
                             {/*<Link href="/obmen-bitcoin" className={styles.dropdownItem} onClick={closeMenu}>
                                 Купить биткоин

@@ -13,6 +13,7 @@ import CurrenciesBlock from "@/componets/pages/currencies-block/CurrenciesBlock.
 import CustomContentBlock from "@/componets/pages/custom-content-block/CustomContentBlock";
 import styles from './HomePage.module.css';
 import stylesBlock from '../componets/pages/custom-content-block/CustomContentBlock.module.css';
+import globalStyles from "@/styles/GlobalStyles.module.css";
 import HowItWorksBlock from "@/componets/pages/howIt-works-block/HowItWorksBlock";
 import CallToAction from "@/componets/pages/call-to-action/CallToAction";
 import CustomerReviews from "@/componets/pages/customer-reviews/CustomerReviews";
@@ -29,7 +30,7 @@ export default function HomePage() {
 
 
     return (
-        <>
+        <div className={globalStyles.contentWrapper}>
 
             <SeoSchema
                 pageTitle={seoConfig.home.title}
@@ -174,6 +175,6 @@ export default function HomePage() {
                 imageAlt="BTC Transformation"
             />
 
-        </>
+        </div>
     );
 }

@@ -1,0 +1,66 @@
+.container {
+    width: 100%;
+    padding: 3rem;
+    background: var(--background-color); /* Градиентный фон */
+    border-radius: 30px;
+    margin-bottom: 10rem;
+    text-align: center; /* Центрируем текст внутри секции */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+}
+
+.content {
+    margin-top: 2rem;
+    display: grid;
+    gap: 5rem; /* Расстояние между элементами */
+}
+
+.descriptions {
+    margin: 5rem auto;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-color-secondary, #555);
+    text-align: center;
+    max-width: 800px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Расстояние между иконкой и текстовым блоком */
+    flex-direction: row;
+    text-align: left;
+}
+
+.icon {
+    font-size: 2rem; /* Размер иконок */
+    color: var(--primary-color); /* Основной цвет (определите его в глобальных переменных) */
+    flex-shrink: 0; /* Иконка не уменьшается при сжатии */
+}
+
+.textBlock h3 {
+    margin: 0;
+
+}
+
+.textBlock p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .item {
+        flex-direction: column; /* Вертикальное расположение для мобильных устройств */
+        align-items: center;
+    }
+
+    .icon {
+
+        font-size: 3rem;
+    }
+    .textBlock {
+        text-align: center;
+
+    }
+}

@@ -56,9 +56,33 @@ export const seoConfig = {
         url: '/faq',
         noIndex: false,
         breadcrumbs: [
-            { position: 1, name: 'Главная', url: 'https://btcbank24.ru/' },
-            { position: 2, name: 'Часто задаваемые вопросы', url: 'https://btcbank24.ru/faq' }
+            { position: 1, name: 'Главная', url: `${baseUrl}/` },
+            { position: 2, name: 'Часто задаваемые вопросы', url: `${baseUrl}/faq` }
         ]
-    }
+    },
+    blog:{
+        title: "Блог о криптовалюте и обмене – BtcBank24",
+        description: "Полезные статьи о криптовалюте, обмене BTC, USDT, LTC, XMR на рубли. Советы по безопасности, аналитика и новости в мире блокчейна от BtcBank24.",
+        keywords: "криптовалюта, обмен BTC, обмен USDT, обмен XMR, блог о криптовалюте, BtcBank24",
+        url: "/blog",
+        image: "/images/blog/blog-btcbank24.webp",
+        noIndex: false,
+        breadcrumbs: [
+            { position: 1, name: "Главная", url: `${baseUrl}/` },
+            { position: 2, name: "Блог", url: `${baseUrl}/blog` }
+        ]
+    },
+    exchangeXmr: {
+        title: 'Купить, обменять и продать Monero (XMR) – Пошаговая инструкция без AML/KYC',
+        description: 'Обмен, покупка и продажа Monero (XMR) быстро и безопасно. Подробная инструкция по работе через Telegram, выгодные курсы и анонимность без лишних формальностей – ваш проводник в мир цифровой алхимии.',
+        keywords: 'обменять монеро, купить xmr, продать монеро, купить монеро, продать монеро за рубли, monero, xmr',
+        url: '/obmen-monero',
+        image: '/images/obmen-monero/monero.webp',
+        noIndex: false,
+        breadcrumbs: [
+            { position: 1, name: "Главная", url: `${baseUrl}/` },
+            { position: 2, name: "Обмен монеро", url: `${baseUrl}/obmen-monero` }
+        ]
+    },
     // Добавь другие страницы по аналогии
 };

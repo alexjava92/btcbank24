@@ -28,7 +28,7 @@
     color: var(--secondary-color)
 }
 
-.faqQuestion {
+.faqQuestion h3{
     font-size: 1.25rem;
     font-weight: bold;
 }

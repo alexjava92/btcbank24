@@ -1,0 +1,63 @@
+.hashtagList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0;
+}
+
+.hashtag {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hashtag:hover {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.expandButton {
+    background-color: #e1e4e8;
+    color: #4a4a4a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expandButton:hover {
+    background-color: #d1d4d8;
+    color: #2a2a2a;
+}
+.tag, .hashtag {
+    background: #f0f8ff;
+    color: #007bff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    border: 1px solid transparent;
+}
+
+.tag:hover, .hashtag:hover {
+    background: #007bff;
+    color: white;
+}
+
+.active {
+    background: #007bff !important;
+    color: white !important;
+    border-color: #0056b3;
+}

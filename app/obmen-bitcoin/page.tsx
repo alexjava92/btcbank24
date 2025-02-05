@@ -9,6 +9,7 @@ import CustomerReviews from "@/componets/pages/customer-reviews/CustomerReviews"
 import InfoBlock from "@/componets/pages/info-block/InfoBlock";
 import stylesBlock from '../../componets/pages/custom-content-block/CustomContentBlock.module.css';
 import styles from "@/app/obmen-bitcoin/ObmenBitcoin.module.css";
+import globalStyles from "@/styles/GlobalStyles.module.css";
 import Instruction from "@/componets/instruction/Instruction";
 import FAQ from "@/componets/pages/faq/FAQ";
 import TableOfContents from "@/componets/pages/table-of-contents/TableOfContentsProps";
@@ -25,7 +26,7 @@ export const metadata = generateMetadata({
 
 export default function ExchangePage() {
     return (
-        <>
+        <div className={globalStyles.contentWrapper}>
             <SeoSchema
                 pageTitle={seoConfig.obmenBitcoin.title}
                 pageDescription={seoConfig.obmenBitcoin.description}
@@ -240,6 +241,6 @@ export default function ExchangePage() {
                     imageAlt="начать обмен биткоин на рубли"
                 />
             </section>
-        </>
+        </div>
     );
 }

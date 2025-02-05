@@ -1,0 +1,79 @@
+.container {
+    display: flex;
+    justify-content: center; /* Центрируем контент */
+    align-items: flex-start;
+    /*max-width: 1400px;*/
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 500px;
+    flex-shrink: 0; /* Чтобы Sidebar не сжимался */
+    margin-right: 20px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto; /* Центрирование контента */
+}
+
+.content p {
+    margin-bottom: 5rem;
+}
+
+.shareButtons {
+    display: flex;
+    gap: 5px; /* Расстояние между иконками */
+    margin-bottom: 3rem;
+}
+
+.shareButtons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.shareButtons a:hover {
+
+    transform: translateY(-3px); /* Лёгкий эффект подъема при наведении */
+}
+
+.shareButtons a svg {
+    fill: var(--secondary-color); /* Цвет иконок */
+    transition: fill 0.3s ease;
+}
+
+.shareButtons a:hover svg {
+    fill: var(--primary-color); /* Цвет иконки при наведении */
+}
+
+
+
+
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        width: 100%;
+    }
+}

@@ -1,0 +1,72 @@
+h1, h2, h3 {
+    margin-bottom: 3rem;
+}
+
+.contentBlock p {
+    margin-bottom: 5rem;
+}
+
+.infoBlock {
+    margin-bottom: 5rem;
+    padding: 3rem;
+    background: var(--card-background);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 30px;
+}
+
+.infoBlock p {
+    margin: 0;
+}
+
+/* Стилизация ненумерованных списков */
+.ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 5rem;
+}
+
+.ul li {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Кастомные маркеры для ul */
+.ul li::before {
+    content: "✓";  /* Вы можете заменить этот символ на любой другой, например, иконку */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* Стилизация нумерованных списков */
+.ol {
+    counter-reset: li-counter;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 5rem;
+}
+
+.ol li {
+    counter-increment: li-counter;
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Кастомные номера для ol */
+.ol li::before {
+    content: counter(li-counter) ".";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}

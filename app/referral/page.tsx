@@ -3,6 +3,7 @@ import ReferralCalculator from "@/app/referral/ReferralCalculator";
 import {seoConfig} from "@/app/utils/seo/seoConfig";
 import SeoSchema from "@/app/utils/seo/SeoSchema";
 import React from "react";
+import globalStyles from "@/styles/GlobalStyles.module.css";
 
 export const metadata = generateMetadata({
     ...seoConfig.referral
@@ -10,7 +11,7 @@ export const metadata = generateMetadata({
 
 export default function ReferralPage() {
     return (
-        <>
+        <div className={globalStyles.contentWrapper}>
             <SeoSchema
                 pageTitle={seoConfig.referral.title}
                 pageDescription={seoConfig.referral.description}
@@ -18,6 +19,6 @@ export default function ReferralPage() {
                 breadcrumbs={seoConfig.referral.breadcrumbs}
             />
             <ReferralCalculator/>
-        </>
+        </div>
     );
 }

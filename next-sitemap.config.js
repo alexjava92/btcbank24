@@ -6,8 +6,11 @@ const config = {
     exclude: ['/admin', '/dashboard'],
     robotsTxtOptions: {
         policies: [
-            { userAgent: '*', allow: '/' },
-            { userAgent: '*', disallow: ['/admin', '/dashboard'] },
+            {
+                userAgent: '*',
+                allow: '/',
+                disallow: ['/admin', '/dashboard'],
+            },
         ],
     },
 };

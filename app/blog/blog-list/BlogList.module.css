@@ -1,0 +1,98 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Размещение элементов по вертикали */
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.searchBarContainer {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.articlesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Более компактные карточки */
+    gap: 20px;
+    width: 100%;
+    justify-items: center;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.imageWrapper {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+.content {
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.description {
+    margin: 0 0 10px;
+    flex-grow: 1;
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.tag {
+    background: #0070f3;
+    color: white;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.tag:hover {
+    background: #0057b3;
+}

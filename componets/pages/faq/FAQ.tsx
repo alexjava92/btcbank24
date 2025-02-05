@@ -29,7 +29,7 @@ const FAQ: React.FC<FAQProps> = ({ items, title = 'Часто задаваемы
                         className={`${styles.faqItem} ${openIndex === index ? styles.active : ''}`}
                         onClick={() => toggleFAQ(index)}
                     >
-                        <div className={styles.faqQuestion}>{item.question}</div>
+                        <div className={styles.faqQuestion}><h3>{item.question}</h3></div>
                         {openIndex === index && <div className={styles.faqAnswer}>{item.answer}</div>}
                     </div>
                 ))}

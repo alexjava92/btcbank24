@@ -65,11 +65,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h3 {
-    font-size: 2.3rem; /* Пропорциональное увеличение для h3 */
+    font-size: 2rem; /* Пропорциональное увеличение для h3 */
   }
 
   h4 {
-    font-size: 2rem; /* Пропорциональное увеличение для h4 */
+    font-size: 1.8rem; /* Пропорциональное увеличение для h4 */
   }
 
   h5 {

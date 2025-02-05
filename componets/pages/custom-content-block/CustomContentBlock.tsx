@@ -3,7 +3,7 @@ import styles from './CustomContentBlock.module.css';
 
 interface Item {
     icon: React.ReactNode;
-    text: string;
+    text: React.ReactNode;
 }
 
 interface CustomContentBlockProps {

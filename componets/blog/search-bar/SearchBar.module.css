@@ -1,0 +1,75 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+}
+
+.inputContainer {
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.inputContainer:focus-within {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.input {
+    width: 100%;
+    padding: 18px 56px 18px 52px;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    color: #1e293b;
+    outline: none;
+    border-radius: 16px;
+}
+
+.input::placeholder {
+    color: #94a3b8;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.clearButton {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #94a3b8;
+    padding: 4px;
+    transition: all 0.2s ease;
+}
+
+.clearButton:hover {
+    color: #64748b;
+    transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .input {
+        padding: 14px 52px 14px 48px;
+        font-size: 0.95rem;
+    }
+
+    .searchIcon {
+        left: 20px;
+    }
+
+    .clearButton {
+        right: 16px;
+    }
+}
